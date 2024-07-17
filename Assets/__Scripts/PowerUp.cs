@@ -38,7 +38,7 @@ public class PowerUp : MonoBehaviour
         vel.z = 0;          // Отобразить vel на плоскость XY
         vel.Normalize();    // Нормализация устанавливает длину Vector3 равной 1 м
         vel *= Random.Range(driftMinMax.x, driftMinMax.y);
-        rigid.velocity = vel;
+        rigid.linearVelocity = vel;
 
         // Установить угол поворота этого игрового объекта равным R:[0, 0, 0]
         transform.rotation = Quaternion.identity; // Отсутствие поворота

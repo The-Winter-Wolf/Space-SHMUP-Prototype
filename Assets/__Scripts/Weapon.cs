@@ -101,17 +101,17 @@ public class Weapon : MonoBehaviour
         switch (type) {
             case WeaponType.blaster:
                 p = MakeProjectile();
-                p.rigid.velocity = vel;
+                p.rigid.linearVelocity = vel;
                 break;
             case WeaponType.spread:
                 p = MakeProjectile(); // Снаряд, летящий прямо
-                p.rigid.velocity = vel;
+                p.rigid.linearVelocity = vel;
                 p = MakeProjectile(); // Снаряд, летящий вправо
                 p.transform.rotation = Quaternion.AngleAxis(10,Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
+                p.rigid.linearVelocity = p.transform.rotation * vel;
                 p = MakeProjectile(); // Снаряд, летящий влево
                 p.transform.rotation = Quaternion.AngleAxis(-10,Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
+                p.rigid.linearVelocity = p.transform.rotation * vel;
                 break;
         }
     }

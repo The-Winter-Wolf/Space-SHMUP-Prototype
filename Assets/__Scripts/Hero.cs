@@ -38,6 +38,12 @@ public class Hero : MonoBehaviour
 
     void Update()
     {
+        // Выйти из приложения
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
         // Извлечь информацию из класса Input
         float xAxis = Input.GetAxis("Horizontal");
         float yAxis = Input.GetAxis("Vertical");
@@ -70,7 +76,7 @@ public class Hero : MonoBehaviour
         Projectile proj = projGO.GetComponent<Projectile>();
         proj.type = WeaponType.blaster;
         float tSpeed = Main.GetWeaponDefinition( proj.type ).velocity;
-        rigidB.velocity = Vector3.up * tSpeed;
+        rigidB.linearVelocity = Vector3.up * tSpeed;
     }
 
     void OnTriggerEnter(Collider other)
